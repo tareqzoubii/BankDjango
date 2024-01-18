@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-o@-k+!c7y=m$fq86@+w%f+qqq6w**5-$!h$5!(7qjfg9_7na^@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ['.vercel.app']
 ALLOWED_HOSTS = ['.vercel.app']
-
 
 # Application definition
 
@@ -78,15 +78,18 @@ WSGI_APPLICATION = 'BankProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'lddmvwna',
+#         'USER': 'lddmvwna',
+#         'PASSWORD': 'HsXkBxUUL4PWH5tSZUqXhIPpvahUkQpz',
+#         'HOST': 'batyr.db.elephantsql.com',
+#         'PORT':'5432'
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lddmvwna',
-        'USER': 'lddmvwna',
-        'PASSWORD': 'HsXkBxUUL4PWH5tSZUqXhIPpvahUkQpz',
-        'HOST': 'batyr.db.elephantsql.com',
-        'PORT':'5432'
-    }
+    'default': dj_database_url.config(default=os.environ.get('postgres://lddmvwna:HsXkBxUUL4PWH5tSZUqXhIPpvahUkQpz@batyr.db.elephantsql.com/lddmvwna'))
 }
 
 
